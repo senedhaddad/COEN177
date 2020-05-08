@@ -1,0 +1,8 @@
+FIFO
+-I used an array to simulate a page table. I first initialized the array to 0 to make sure it's initialized to nothing. I used a variable named works that is 0 if the number is in a page frame and a 1 if it is not in the page frame. The code scans through the file setting works to 1 every time it reads a new file. We go through the array to see if we can find the element. If so, we set works to 0. If we can't find the element we increment page faults and set the first element used to the new element that can't be found.
+
+LRU
+-I made a function LRU to update the time. This function was similar to FIFO but it has to update the least recently used element. I  used two boolean values for when the key is in the page table and one when the key is not. We need to use two different ones because we need to know the least recently used element, so we can switch that one out when a new unused element is read.
+
+Second-Chance
+-This algorithm is essentially the FIFO algorithm with a second array marking a 0 or 1. We use the second chance bit like a round-robin. Every time a memory frame is referenced, we set the second array element to 1. If the second chance bit is a 1. we reset it to 0 and continue. If it's a zero, we replace the page in the memory frame.
